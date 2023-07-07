@@ -8,8 +8,14 @@ const AvatarList = ({ clickHandler }) => {
     <UnorderedList display="flex" flexWrap="wrap">
       {listSize.length &&
         listSize.map((_, index) => (
-          <ListItem m="2" listStyleType="none" key={index + 1} id={index + 1}>
-            <RobotIcon onClick={clickHandler} iconId={index + 1} />
+          <ListItem
+            m="2"
+            onClick={() => clickHandler(index + 1)}
+            listStyleType="none"
+            key={index + 1}
+            id={index + 1}
+          >
+            <RobotIcon iconId={index + 1} />
           </ListItem>
         ))}
     </UnorderedList>

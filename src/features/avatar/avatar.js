@@ -21,7 +21,6 @@ const Avatar = () => {
 
   const formHandler = (updatedAvatar) => {
     setAvatar(updatedAvatar);
-    setIsEditMode(false);
   };
 
   return (
