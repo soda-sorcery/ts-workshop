@@ -1,23 +1,39 @@
 import { RobotIcon } from "../../../../components/icons/robot-icon";
 import { Box, UnorderedList, ListItem } from "@chakra-ui/react";
+import { useState } from "react";
 
 const listSize = new Array(10).fill("");
 
 const AvatarList = ({ clickHandler }) => {
+  const [selectedId, setSelectedId] = useState(0);
+
+  const onClickHandler = (id) => {
+    setSelectedId(id);
+    clickHandler(id);
+  };
+
   return (
     <UnorderedList display="flex" flexWrap="wrap">
       {listSize.length &&
-        listSize.map((_, index) => (
-          <ListItem
-            m="2"
-            onClick={() => clickHandler(index + 1)}
-            listStyleType="none"
-            key={index + 1}
-            id={index + 1}
-          >
-            <RobotIcon iconId={index + 1} />
-          </ListItem>
-        ))}
+        listSize.map((_, index) => {
+          const id = index + 1;
+          const isSelected = Number(selectedId) === id;
+          return (
+            <ListItem
+              m="2"
+              onClick={() => onClickHandler(id)}
+              listStyleType="none"
+              key={id}
+              id={id}
+            >
+              <RobotIcon
+                iconId={id}
+                isSelected={isSelected}
+                _hover={{ transform: "scale(1.25)" }}
+              />
+            </ListItem>
+          );
+        })}
     </UnorderedList>
   );
 };

@@ -7,7 +7,6 @@ const StaticAvatar = ({ iconId = DEFAULT_AVATAR_ID }) => {
   return (
     <React.Fragment>
       <RobotIcon iconId={iconId} />
-      <AvatarEditableText isDisabled />
     </React.Fragment>
   );
 };

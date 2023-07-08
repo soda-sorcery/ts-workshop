@@ -1,19 +1,28 @@
-import { ReactSVG } from "react-svg";
-import { Box, Avatar } from "@chakra-ui/react";
+import { Box, Avatar, AvatarBadge } from "@chakra-ui/react";
 
-const RobotIcon = ({ iconId = 1 }) => {
+const RobotIcon = ({ iconId = 1, isSelected = true, ...rest }) => {
   return (
-    <Box width="75px" height="auto">
-      {/* <ReactSVG src={`/icons/icon-${iconId}.svg`} /> */}
-      <Avatar
-        ignoreFallback
-        loading="eager"
-        src={`/icons/icon-${iconId}.svg`}
-      />
-    </Box>
+    <>
+      {!isSelected && (
+        <Avatar
+          width="100px"
+          height="auto"
+          {...rest}
+          src={`/icons/icon-${iconId}.svg`}
+        />
+      )}
+      {isSelected && (
+        <Avatar
+          width="100px"
+          height="auto"
+          {...rest}
+          src={`/icons/icon-${iconId}.svg`}
+        >
+          <AvatarBadge boxsize="1.25em" />
+        </Avatar>
+      )}
+    </>
   );
 };
-
-
 
 export { RobotIcon };

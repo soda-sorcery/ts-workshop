@@ -21,7 +21,6 @@ const AvatarForm = ({ formHandler }) => {
   return (
     <Flex alignItems="center" direction="column">
       <AvatarList clickHandler={setAvatarImg} />
-      <AvatarEditableText isEditMode />
     </Flex>
   );
 };
