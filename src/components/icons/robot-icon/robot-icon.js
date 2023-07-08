@@ -1,6 +1,13 @@
-import { Box, Avatar, AvatarBadge } from "@chakra-ui/react";
+import {
+  Box,
+  Avatar,
+  AvatarBadge,
+  useColorModeValue,
+  useToken,
+} from "@chakra-ui/react";
 
-const RobotIcon = ({ iconId = 1, isSelected = true, ...rest }) => {
+const RobotIcon = ({ iconId = 1, isSelected = false, ...rest }) => {
+  const [outline, boxShadow] = useToken("colors", ["blue.400", "purple.700"]);
   return (
     <>
       {!isSelected && (
@@ -16,10 +23,11 @@ const RobotIcon = ({ iconId = 1, isSelected = true, ...rest }) => {
           width="100px"
           height="auto"
           {...rest}
+          outline="4px solid"
+          outlineColor={outline}
+          boxShadow={`0 0 30px ${boxShadow}`}
           src={`/icons/icon-${iconId}.svg`}
-        >
-          <AvatarBadge boxsize="1.25em" />
-        </Avatar>
+        />
       )}
     </>
   );
