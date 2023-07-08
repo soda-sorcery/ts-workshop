@@ -7,13 +7,19 @@ import {
 } from "@chakra-ui/react";
 
 const RobotIcon = ({ iconId = 1, isSelected = false, ...rest }) => {
-  const [outline, boxShadow] = useToken("colors", ["blue.400", "purple.700"]);
+  const [outline, boxShadow, unSelected] = useToken("colors", [
+    "red.400",
+    "purple.700",
+    "yellow.400",
+  ]);
   return (
     <>
       {!isSelected && (
         <Avatar
           width="100px"
           height="auto"
+          outline="4px solid"
+          outlineColor={unSelected}
           {...rest}
           src={`/icons/icon-${iconId}.svg`}
         />
