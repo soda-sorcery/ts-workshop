@@ -1,8 +1,8 @@
-import "./avatar.css";
-import { Flex, IconButton, ButtonGroup, Button } from "@chakra-ui/react";
+
+import { Flex, IconButton, ButtonGroup } from "@chakra-ui/react";
 import { EditIcon, CheckIcon, CloseIcon } from "@chakra-ui/icons";
-import { useEffect, useState } from "react";
-import { DEFAULT_AVATAR_ID, DEFAULT_AVATAR_NAME } from "./constants";
+import { useState } from "react";
+import { DEFAULT_AVATAR_ID } from "./constants";
 import { RobotIcon } from "../../components/icons/robot-icon";
 import { AvatarList } from "./components/avatar-list";
 
